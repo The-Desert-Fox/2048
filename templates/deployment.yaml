@@ -61,7 +61,7 @@ spec:
       volumes:
         - name: style
           configMap:
-            name: {{ include "2048.fullname" . }}-css
+            name: 2048-css
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
