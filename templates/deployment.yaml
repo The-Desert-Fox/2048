@@ -52,17 +52,13 @@ spec:
             initialDelaySeconds: {{ .Values.service.initialDelaySeconds }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
             - mountPath: /usr/share/nginx/html/style/main.css
               name: style
-          {{- end }}
-      {{- with .Values.volumes }}
       volumes:
         - name: style
           configMap:
             name: 2048-css
-      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
