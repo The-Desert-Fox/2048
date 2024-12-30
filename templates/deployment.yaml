@@ -54,11 +54,14 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
+            - mountPath: /usr/share/nginx/html/style/main.css
+              name: style
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
-        {{- toYaml . | nindent 8 }}
+        - name: style
+          secret:
+            secretName: {{ include "2048.fullname" . }}-css
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
