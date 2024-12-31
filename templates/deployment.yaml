@@ -53,12 +53,13 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /usr/share/nginx/html/style/main.css
+            - mountPath: /usr/share/nginx/html/style
+              subPath: main.css
               name: style
       volumes:
         - name: style
           configMap:
-            name: 2048-css
+            name: 2048-css # Should be generated
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
