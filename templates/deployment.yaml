@@ -53,7 +53,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - mountPath: /usr/share/nginx/html/style
+            - mountPath: /usr/share/nginx/html/style/main.css
               subPath: main.css
               name: style
       volumes:
