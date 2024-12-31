@@ -97,3 +97,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+configMap:
+  name: 2048-config-map
+  backgroundColor: "#fc855d"

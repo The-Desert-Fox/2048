@@ -58,7 +58,7 @@ spec:
       volumes:
         - name: style
           configMap:
-            name: 2048-css # Should be generated
+            name: {{ include "2048.fullname" . }}-css
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
